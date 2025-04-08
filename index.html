@@ -14,17 +14,20 @@
       padding: 0;
       overflow-x: hidden;
     }
+
     .rotating-img {
       max-width: 250px;
       height: auto;
       border: 3px dashed hotpink;
       margin: 20px auto;
     }
+
     .random-fact {
       color: aqua;
       font-size: 1.1em;
       margin-top: 10px;
     }
+
     .star {
       position: absolute;
       width: 8px;
@@ -35,21 +38,53 @@
       z-index: 9999;
       animation: twinkle 1s linear infinite;
     }
+
     @keyframes twinkle {
       0%, 100% { opacity: 0; transform: scale(1); }
       50% { opacity: 1; transform: scale(1.5); }
     }
-    .iframe-container {
+
+    #brianna-bot-container {
       margin: 40px auto;
-      display: flex;
-      justify-content: center;
       width: 80%;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 3px double lime;
+      padding: 20px;
+      border-radius: 20px;
     }
-    iframe {
-      border: 3px outset #fff;
-      box-shadow: 0 0 0 3px #808080, 0 0 10px #000;
-      width: 100%;
-      height: 500px;
+
+    #chat-box {
+      text-align: left;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      background: #111;
+      padding: 10px;
+      border: 1px solid #444;
+    }
+
+    #chat-box p {
+      margin: 5px 0;
+    }
+
+    #user-input {
+      width: 70%;
+      padding: 10px;
+      font-family: "Comic Sans MS";
+    }
+
+    button {
+      padding: 10px;
+      background: hotpink;
+      border: none;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: deeppink;
     }
   </style>
 </head>
@@ -69,9 +104,12 @@
     </p>
   </section>
 
-  <!-- ChatGPT iframe for Brianna Bot -->
-  <div class="iframe-container">
-    <iframe src="https://chatgpt.com/g/g-67f4db30b378819197eb23fd0d9a0050-brianna-bot" title="Brianna Bot Chat Window"></iframe>
+  <!-- 👇 Replaces the iframe with a real chat UI -->
+  <div id="brianna-bot-container">
+    <h2>🧠 Chat with Brianna Bot</h2>
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Ask Brianna Bot anything..." />
+    <button onclick="sendMessage()">Send</button>
   </div>
 
   <script>
@@ -116,7 +154,39 @@
         star.remove();
       }, 1000);
     });
-  </script>
 
+    // 💬 Chatbot logic
+    async function sendMessage() {
+      const input = document.getElementById('user-input');
+      const message = input.value.trim();
+      if (!message) return;
+
+      appendToChat("You", message);
+      input.value = "";
+
+      try {
+        const response = await fetch("https://briannabot.netlify.app/.netlify/functions/askBrianna", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await response.json();
+        appendToChat("Brianna Bot", data.reply || "Oops! Something went wrong.");
+      } catch (err) {
+        appendToChat("Brianna Bot", "⚠️ I couldn't reach my magic sparkle server. Try again later!");
+      }
+    }
+
+    function appendToChat(sender, text) {
+      const chatBox = document.getElementById("chat-box");
+      const messageElement = document.createElement("p");
+      messageElement.innerHTML = `<strong>${sender}:</strong> ${text}`;
+      chatBox.appendChild(messageElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
 </body>
 </html>
