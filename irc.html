@@ -2,28 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Brianna Bot Chat</title>
+  <title>Brianna Bot IRC Chat</title>
   <style>
     body {
       background-color: #1e1e1e;
       color: #c0c0c0;
       font-family: "Courier New", monospace;
       padding: 2em;
+      text-align: center;
     }
     .chatbox {
       border: 2px inset #999;
       background: #2e2e2e;
       padding: 1em;
-      width: 100%;
+      width: 90%;
+      max-width: 700px;
+      margin: 0 auto;
       height: 400px;
       overflow-y: auto;
+      white-space: pre-wrap;
+      text-align: left;
+    }
+    #userInput {
+      width: 90%;
+      max-width: 700px;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #888;
+      background: #111;
+      color: lime;
+      font-family: inherit;
+    }
+    button {
+      margin-top: 10px;
+      padding: 6px 16px;
+      background: #444;
+      color: white;
+      border: 1px solid #999;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #666;
     }
   </style>
 </head>
 <body>
-  <div class="chatbox">
-    <p><strong>[BriannaBot]</strong>: Hello! This is a placeholder chat window.</p>
-    <p>Your AI bot will be connected here soon!</p>
+
+  <h2>[#BriannaBot]</h2>
+
+  <div id="chatLog" class="chatbox">
+    <strong>[BriannaBot]</strong>: Hello! Ask me anything about Jira, automation, or what my creator's favorite gummy is 🍬
   </div>
+
+  <textarea id="userInput" rows="3" placeholder="Type your message here..."></textarea><br>
+  <button onclick="askBrianna()">Send</button>
+
+  <script>
+    async function askBrianna() {
+      const input = document.getElementById("userInput").value.trim();
+      if (!input) return;
+
+      const chatLog = document.getElementById("chatLog");
+      chatLog.innerHTML += `\n[You]: ${input}`;
+      document.getElementById("userInput").value = "";
+      chatLog.scrollTop = chatLog.scrollHeight;
+
+      chatLog.innerHTML += `\n[BriannaBot]: ...thinking...\n`;
+
+      try {
+        const response = await fetch("/.netlify/functions/askBrianna", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ message: input })
+        });
+
+        const data = await response.json();
+        const botReply = data.reply || "(no response)";
+        chatLog.innerHTML += `[BriannaBot]: ${botReply}\n`;
+        chatLog.scrollTop = chatLog.scrollHeight;
+      } catch (err) {
+        chatLog.innerHTML += "[BriannaBot]: Error reaching server. 😢\n";
+      }
+    }
+  </script>
+
 </body>
 </html>
