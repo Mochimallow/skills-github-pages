@@ -1,6 +1,7 @@
 export async function handler(event) {
   try {
     const { message } = JSON.parse(event.body || '{}');
+    console.log("💬 Incoming message:", message);
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -22,14 +23,16 @@ export async function handler(event) {
     });
 
     const data = await response.json();
+    console.log("🤖 OpenAI response:", JSON.stringify(data, null, 2));
+
+    const reply = data.choices?.[0]?.message?.content || "⚠️ The sparkle faded. Try again?";
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        reply: data.choices?.[0]?.message?.content || "⚠️ The sparkle faded. Try again?"
-      })
+      body: JSON.stringify({ reply })
     };
+
   } catch (err) {
-    console.error("Brianna Bot Error:", err);
+    console.error("❌ Brianna Bot Error:", err);
     return {
       statusCode: 500,
       body: JSON.stringify({ reply: "🚨 Something went wrong. Try again soon!" })
