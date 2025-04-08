@@ -141,7 +141,7 @@
       input.value = "";
 
       try {
-        const response = await fetch("/.netlify/functions/askBrianna", {
+        const response = await fetch("/api/askBrianna", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message })
@@ -152,6 +152,7 @@
         appendToChat("Brianna Bot", "⚠️ Sparkle server unreachable. Try again soon.");
       }
     }
+
     function appendToChat(sender, text) {
       const chatBox = document.getElementById("chat-box");
       const p = document.createElement("p");
