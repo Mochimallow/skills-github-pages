@@ -101,7 +101,20 @@
   </div>
 
   <script>
-    const images = ["images/brianna_photo_1.jpg"];
+    const images = [
+  "images/brianna_photo_1.jpg",
+  "images/brianna_photo_3.jpg",
+  "images/brianna_photo_4.jpg",
+  "images/brianna_photo_5.jpg",
+  "images/brianna_photo_6.jpg",
+  "images/brianna_photo_7.jpg",
+  "images/brianna_photo_8.jpg",
+  "images/brianna_photo_9.jpg",
+  "images/brianna_photo_10.jpg",
+  "images/BriannaBot.png",
+  "images/BriannaGengar.jpg",
+  "images/BriannaWitherspoon-Spirit.jpg"
+];
     const facts = [
       "Fun Fact: Brianna once built a ping pong team just to challenge Penny Arcade’s team.",
       "Fun Fact: She’s traveled over 2,000 miles for her first tattoo.",
@@ -112,12 +125,13 @@
       "Fun Fact: She’s been using Atlassian tools for over 13 years.",
       "Fun Fact: She always says her best collaborators are stakeholders and ChatGPT."
     ];
+
     let imgIndex = 0;
     let factIndex = 0;
     setInterval(() => {
-      imgIndex = (imgIndex + 1) % images.length;
-      document.getElementById('bioImage').src = images[imgIndex];
-    }, 4000);
+  imgIndex = (imgIndex + 1) % images.length;
+  document.getElementById('bioImage').src = images[imgIndex];
+}, 4000); // rotates every 4 seconds
     setInterval(() => {
       factIndex = (factIndex + 1) % facts.length;
       document.getElementById('randomFact').textContent = facts[factIndex];
