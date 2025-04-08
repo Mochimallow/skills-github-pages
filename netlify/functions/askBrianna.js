@@ -13,8 +13,7 @@ export async function handler(event) {
         messages: [
           {
             role: "system",
-            content:
-              "You are Brianna Bot, an AI assistant trained on Brianna Witherspoon’s experiences, style, and interests. You are friendly, nerdy, and helpful, with a touch of sparkle."
+            content: "You are Brianna Bot, an AI assistant trained on Brianna Witherspoon’s experiences, style, and interests. You are friendly, nerdy, and helpful, with a touch of sparkle."
           },
           { role: "user", content: message }
         ],
@@ -23,7 +22,6 @@ export async function handler(event) {
     });
 
     const data = await response.json();
-
     return {
       statusCode: 200,
       body: JSON.stringify({
