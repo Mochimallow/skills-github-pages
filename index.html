@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,20 +44,11 @@
       display: flex;
       justify-content: center;
     }
-    .tech-logos {
-      margin: 20px auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    .tech-logos img {
-      width: 50px;
-      height: 50px;
-      border: 2px solid lime;
-      border-radius: 8px;
-      background-color: black;
-      padding: 5px;
+    iframe {
+      width: 900px;
+      height: 600px;
+      border: 3px outset #fff;
+      box-shadow: 0 0 0 3px #808080, 0 0 10px #000;
     }
   </style>
 </head>
@@ -79,18 +69,7 @@
   </section>
 
   <div class="iframe-container">
-    <iframe src="irc.html" width="900" height="600" style="border: 3px outset #fff; box-shadow: 0 0 0 3px #808080, 0 0 10px #000;"></iframe>
-  </div>
-
-  <div class="tech-logos">
-    <img src="images/icons/atlassian.png" alt="Atlassian">
-    <img src="images/icons/jira.png" alt="Jira">
-    <img src="images/icons/confluence.png" alt="Confluence">
-    <img src="images/icons/chatgpt.png" alt="ChatGPT">
-    <img src="images/icons/zapier.png" alt="Zapier">
-    <img src="images/icons/smartsheet.png" alt="Smartsheet">
-    <img src="images/icons/salesforce.png" alt="Salesforce">
-    <img src="images/icons/netlify.png" alt="Netlify">
+    <iframe src="irc.html" title="Brianna Bot Chat Window"></iframe>
   </div>
 
   <script>
