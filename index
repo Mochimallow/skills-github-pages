@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>✨ Welcome to Brianna Bot's Realm ✨</title>
+  <title>✨ Welcome to Brianna Bot✨</title>
   <style>
     body {
       background-color: black;
@@ -62,6 +61,10 @@
     </p>
   </section>
 
+  <div class="iframe-container" style="display: flex; justify-content: center;">
+    <iframe src="irc.html" width="720" height="480" style="border: 3px outset #fff; box-shadow: 0 0 0 3px #808080, 0 0 10px #000;"></iframe>
+  </div>
+
   <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
   <zapier-interfaces-chatbot-embed
     is-popup='false'
@@ -72,7 +75,7 @@
 
   <script>
     const images = [
-  "images/brianna_photo_1.jpg","images/brianna_photo_2.jpg","images/brianna_photo_3.jpg","images/brianna_photo_4.jpg","images/brianna_photo_5.jpg","images/brianna_photo_6.jpg","images/brianna_photo_7.jpg","images/brianna_photo_8.jpg","images/brianna_photo_9.jpg","images/brianna_photo_10.jpg","images/20210330_100001.jpg","images/BriannaGengar.jpg","images/BriannaWitherspoon-Spirit-.jpg","images/BriannaWitherspoon-Spirit.jpg","images/VideoCapture_20250404-110252.jpg","images/image.png"
+  "images/brianna_photo_1.jpg","images/brianna_photo_3.jpg","images/brianna_photo_4.jpg","images/brianna_photo_5.jpg","images/brianna_photo_6.jpg","images/brianna_photo_7.jpg","images/brianna_photo_8.jpg","images/brianna_photo_9.jpg","images/brianna_photo_10.jpg","images/20210330_100001.jpg","images/BriannaGengar.jpg","images/BriannaWitherspoon-Spirit-.jpg","images/BriannaWitherspoon-Spirit.jpg","images/VideoCapture_20250404-110252.jpg","images/image.png"
 ];
 
     const facts = [
