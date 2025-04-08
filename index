@@ -61,31 +61,20 @@
     </p>
   </section>
 
-  <div class="iframe-container" style="display: flex; justify-content: center;">
-    <iframe src="irc.html" width="720" height="480" style="border: 3px outset #fff; box-shadow: 0 0 0 3px #808080, 0 0 10px #000;"></iframe>
-  </div>
-
-  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
-  <zapier-interfaces-chatbot-embed
-    is-popup='false'
-    chatbot-id='cm90qbsok005a9yo91s3iiz6g'
-    height='600px'
-    width='400px'>
-  </zapier-interfaces-chatbot-embed>
-
   <script>
     const images = [
   "images/brianna_photo_1.jpg","images/brianna_photo_3.jpg","images/brianna_photo_4.jpg","images/brianna_photo_5.jpg","images/brianna_photo_6.jpg","images/brianna_photo_7.jpg","images/brianna_photo_8.jpg","images/brianna_photo_9.jpg","images/brianna_photo_10.jpg","images/20210330_100001.jpg","images/BriannaGengar.jpg","images/BriannaWitherspoon-Spirit-.jpg","images/BriannaWitherspoon-Spirit.jpg","images/VideoCapture_20250404-110252.jpg","images/image.png"
 ];
 
     const facts = [
-      "Fun Fact: Brianna once built a ping pong team just to challenge Penny Arcade’s team.",
+      "Fun Fact: Brianna once built a ping pong team just to challenge Penny Arcade’s team because she challenged them in a Tweet and they accepted.",
       "Fun Fact: She’s traveled over 2,000 miles for her first tattoo.",
-      "Fun Fact: Her dream is to open a bakery in Tokyo that sells American desserts.",
+      "Fun Fact: Her dream is to open a bakery in Tokyo that sells American desserts from throughout the centuries.",
       "Fun Fact: She lives in a 1924 house and kinda wishes it was haunted.",
       "Fun Fact: She’s been to Japan three times and loves purple everything.",
       "Fun Fact: She only eats one type of gummy—Swedish Fish.",
-      "Fun Fact: She’s been using Atlassian tools for over 13 years."
+      "Fun Fact: She’s been using Atlassian tools for over 13 years.",
+      "Fun Fact: She always says her best collaborators are stakeholders and ChatGPT."
     ];
 
     let imgIndex = 0;
