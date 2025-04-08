@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,8 +41,9 @@
       50% { opacity: 1; transform: scale(1.5); }
     }
     .iframe-container {
-      margin: 30px auto;
-      width: 400px;
+      margin: 40px auto;
+      display: flex;
+      justify-content: center;
     }
   </style>
 </head>
@@ -61,10 +63,17 @@
     </p>
   </section>
 
+  <div class="iframe-container">
+    <iframe src="irc.html" width="720" height="480" style="border: 3px outset #fff; box-shadow: 0 0 0 3px #808080, 0 0 10px #000;"></iframe>
+  </div>
+
   <script>
     const images = [
-  "images/brianna_photo_1.jpg","images/brianna_photo_3.jpg","images/brianna_photo_4.jpg","images/brianna_photo_5.jpg","images/brianna_photo_6.jpg","images/brianna_photo_7.jpg","images/brianna_photo_8.jpg","images/brianna_photo_9.jpg","images/brianna_photo_10.jpg","images/20210330_100001.jpg","images/BriannaGengar.jpg","images/BriannaWitherspoon-Spirit-.jpg","images/BriannaWitherspoon-Spirit.jpg","images/VideoCapture_20250404-110252.jpg","images/image.png"
-];
+      "images/brianna_photo_1.jpg","images/brianna_photo_3.jpg","images/brianna_photo_4.jpg","images/brianna_photo_5.jpg",
+      "images/brianna_photo_6.jpg","images/brianna_photo_7.jpg","images/brianna_photo_8.jpg","images/brianna_photo_9.jpg",
+      "images/brianna_photo_10.jpg","images/20210330_100001.jpg","images/BriannaGengar.jpg","images/BriannaWitherspoon-Spirit-.jpg",
+      "images/BriannaWitherspoon-Spirit.jpg","images/VideoCapture_20250404-110252.jpg","images/image.png"
+    ];
 
     const facts = [
       "Fun Fact: Brianna once built a ping pong team just to challenge Penny Arcade’s team because she challenged them in a Tweet and they accepted.",
