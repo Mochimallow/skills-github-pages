@@ -15,10 +15,14 @@
       overflow-x: hidden;
     }
     .rotating-img {
+      width: 100%;
       max-width: 250px;
-      height: auto;
+      height: 250px;
+      object-fit: cover;
       border: 3px dashed hotpink;
       margin: 20px auto;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
     }
     .random-fact {
       color: aqua;
@@ -102,19 +106,20 @@
 
   <script>
     const images = [
-  "images/brianna_photo_1.jpg",
-  "images/brianna_photo_3.jpg",
-  "images/brianna_photo_4.jpg",
-  "images/brianna_photo_5.jpg",
-  "images/brianna_photo_6.jpg",
-  "images/brianna_photo_7.jpg",
-  "images/brianna_photo_8.jpg",
-  "images/brianna_photo_9.jpg",
-  "images/brianna_photo_10.jpg",
-  "images/BriannaBot.png",
-  "images/BriannaGengar.jpg",
-  "images/BriannaWitherspoon-Spirit.jpg"
-];
+      "images/brianna_photo_1.jpg",
+      "images/brianna_photo_3.jpg",
+      "images/brianna_photo_4.jpg",
+      "images/brianna_photo_5.jpg",
+      "images/brianna_photo_6.jpg",
+      "images/brianna_photo_7.jpg",
+      "images/brianna_photo_8.jpg",
+      "images/brianna_photo_9.jpg",
+      "images/brianna_photo_10.jpg",
+      "images/BriannaBot.png",
+      "images/BriannaGengar.jpg",
+      "images/BriannaWitherspoon-Spirit.jpg"
+    ];
+
     const facts = [
       "Fun Fact: Brianna once built a ping pong team just to challenge Penny Arcade’s team.",
       "Fun Fact: She’s traveled over 2,000 miles for her first tattoo.",
@@ -128,14 +133,23 @@
 
     let imgIndex = 0;
     let factIndex = 0;
+
+    // 🖼️ Image carousel with fade
     setInterval(() => {
-  imgIndex = (imgIndex + 1) % images.length;
-  document.getElementById('bioImage').src = images[imgIndex];
-}, 4000); // rotates every 4 seconds
+      const img = document.getElementById('bioImage');
+      img.style.opacity = 0;
+      setTimeout(() => {
+        imgIndex = (imgIndex + 1) % images.length;
+        img.src = images[imgIndex];
+        img.style.opacity = 1;
+      }, 500);
+    }, 4000);
+
     setInterval(() => {
       factIndex = (factIndex + 1) % facts.length;
       document.getElementById('randomFact').textContent = facts[factIndex];
     }, 5000);
+
     document.addEventListener('mousemove', function(e) {
       const star = document.createElement('div');
       star.classList.add('star');
