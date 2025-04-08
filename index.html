@@ -101,10 +101,7 @@
   </div>
 
   <script>
-    const images = [
-      "images/brianna_photo_1.jpg","images/brianna_photo_3.jpg","images/brianna_photo_4.jpg","images/brianna_photo_5.jpg",
-      "images/brianna_photo_6.jpg","images/brianna_photo_7.jpg","images/brianna_photo_8.jpg","images/brianna_photo_9.jpg"
-    ];
+    const images = ["images/brianna_photo_1.jpg"];
     const facts = [
       "Fun Fact: Brianna once built a ping pong team just to challenge Penny Arcade’s team.",
       "Fun Fact: She’s traveled over 2,000 miles for her first tattoo.",
@@ -152,7 +149,7 @@
         const data = await response.json();
         appendToChat("Brianna Bot", data.reply || "Oops! Something went wrong.");
       } catch (err) {
-        appendToChat("Brianna Bot", "⚠️ I couldn't reach the sparkle server. Try again soon!");
+        appendToChat("Brianna Bot", "⚠️ Sparkle server unreachable. Try again soon.");
       }
     }
     function appendToChat(sender, text) {
